@@ -141,7 +141,7 @@ const ChatBot = () => {
   return (
     <>
       <div className="h-[91vh] flex flex-col" ref={containerRef}>
-        <div className="flex-grow overflow-auto py-4 px-8 pb-[6rem]">
+        <div className="flex-grow overflow-auto py-4 px-8 pb-[10rem]">
           {chatMessages?.map((message, index) => (
             <ChatMessage key={index} message={message} />
           ))}

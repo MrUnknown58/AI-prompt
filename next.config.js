@@ -11,6 +11,7 @@
 const nextConfig = {
   experimental: {
     serverComponentsExternalPackages: ["mongoose"],
+    serverActions: true,
   },
   images: {
     domains: [
