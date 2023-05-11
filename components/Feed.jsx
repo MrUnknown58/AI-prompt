@@ -28,7 +28,7 @@ const Feed = () => {
       setsearchedPosts(result);
     };
     if (session?.user.id) fetchdata();
-  }, []);
+  }, [session?.user.id]);
   const handleSearch = (e, tag) => {
     // const s = e?.target?.value?.toLowerCase();
     const s = e?.target?.value;
