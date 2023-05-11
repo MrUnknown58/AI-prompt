@@ -25,7 +25,7 @@ const PromptCart = ({ post, handleTagClick, handleEdit, handleDelete }) => {
         {/* <div class="bg-gray-800 bg-opacity-40 p-6 rounded-lg"> */}
         <div className="flex justify-between">
           <div className="flex items-center">
-            {session?.user.id === post.creator._id && path === "/profile" ? (
+            {session?.user.id === post?.creator?._id && path === "/profile" ? (
               <div className="space-x-5">
                 <Tooltip title="Edit" placement="top">
                   <ModeEditOutlineIcon
@@ -46,26 +46,37 @@ const PromptCart = ({ post, handleTagClick, handleEdit, handleDelete }) => {
           </div>
           <div
             className="flex flex-col items-end cursor-pointer"
-            onClick={() => router.push(`/profile/${post.creator._id}`)}
+            onClick={() => router.push(`/profile/${post?.creator?._id}`)}
           >
             <Image
               class="rounded object-contain object-center mb-6 flex justify-end"
-              src={post.creator.image}
+              src={post?.creator?.image}
               alt="user_image"
               height={40}
               width={40}
             />
             <h3 class="tracking-widest text-indigo-400 text-xs font-medium title-font">
-              {post.creator.username}
+              {post?.creator?.username}
             </h3>
             <h4 class="tracking-widest text-indigo-400 text-xs font-medium title-font">
-              {post.creator.email}
+              {post?.creator?.email}
             </h4>
           </div>
         </div>
         <div className="flex justify-between">
           <div>
-            <h2 class="text-lg font-medium title-font mb-4">{post.prompt}</h2>
+            <h2
+              class="md:w-[280px] w-full text-lg font-medium title-font mb-4"
+              style={{
+                overflow: "hidden",
+                "text-overflow": "ellipsis",
+                display: "-webkit-box",
+                "-webkit-line-clamp": "2",
+                "-webkit-box-orient": "vertical",
+              }}
+            >
+              {post.prompt}
+            </h2>
             <div
               onClick={() => {
                 path === "/"
