@@ -8,6 +8,6 @@ export const GET = async (req) => {
     return new Response(JSON.stringify(response), { status: 202 });
   } catch (err) {
     console.log(err);
-    return new Response("Failed to fetch the prompt", { status: 404 });
+    return new Response(err, { status: 404 });
   }
 };
