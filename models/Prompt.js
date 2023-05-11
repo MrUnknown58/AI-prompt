@@ -13,5 +13,12 @@ const PromptSchema = new Schema({
     required: [true, "Tag is required"],
   },
 });
+// let Prompt = undefined;
+// if (!models.Prompt) {
+//   // Create the Prompt model
+//   Prompt = model("Prompt", PromptSchema);
+// }
+console.log(models);
 const Prompt = models.Prompt || model("Prompt", PromptSchema);
+// export default Prompt === undefined ? models.Prompt : Prompt;
 export default Prompt;

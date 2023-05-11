@@ -7,7 +7,8 @@ export const GET = async (req) => {
     const response = await Prompt.find({}).populate("creator");
     return new Response(JSON.stringify(response), { status: 202 });
   } catch (err) {
+    console.log("Logging error..");
     console.log(err);
-    return new Response(err, { status: 404 });
+    return new Response(err, { status: 120 });
   }
 };
