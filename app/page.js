@@ -1,5 +1,6 @@
 import Feed from "@components/Feed";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -22,7 +23,14 @@ export default function Home() {
             like never before.
           </p>
         </div>
-        <Feed />
+        <div className="pt-20">
+          <Link
+            href="/open_feed"
+            className="rounded-full py-2 px-4 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500"
+          >
+            Start your Journey by visiting our Feed
+          </Link>
+        </div>
       </section>
     </>
   );
