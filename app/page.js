@@ -1,3 +1,4 @@
+"use client";
 import Feed from "@components/Feed";
 import Image from "next/image";
 import Link from "next/link";
