@@ -21,7 +21,7 @@ const Feed = () => {
 
   useEffect(() => {
     const fetchdata = async () => {
-      const response = await fetch("/api/posts", { cache: "no-store" });
+      const response = await fetch("/api/all_posts");
       const result = await response.json();
       console.log(result);
       setposts(result);
@@ -29,7 +29,7 @@ const Feed = () => {
     };
     // if (session?.user.id) fetchdata();
     fetchdata();
-  }, []);
+  }, [session?.user?.id]);
   const handleSearch = (e, tag) => {
     // const s = e?.target?.value?.toLowerCase();
     const s = e?.target?.value;
