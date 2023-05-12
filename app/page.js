@@ -23,14 +23,14 @@ export default function Home() {
             like never before.
           </p>
         </div>
-        <div className="pt-20">
+        {/* <div className="pt-20">
           <Link
             href="/open_feed"
             className="rounded-full py-2 px-4 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500"
           >
             Start your Journey by visiting our Feed
           </Link>
-        </div>
+        </div> */}
       </section>
     </>
   );
