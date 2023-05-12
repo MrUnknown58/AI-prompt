@@ -46,12 +46,12 @@ const Nav = () => {
                 >
                   Create Prompt
                 </Link>
-                <Link
+                {/* <Link
                   className="rounded-full border border-black py-2 px-5 text-black hover:bg-black hover:text-white text-sm flex flex-col justify-center transition-all"
                   href="/new_prompts"
                 >
                   Open Feed
-                </Link>
+                </Link> */}
                 <button
                   className="rounded-full border border-black bg-black py-2 px-5 text-white hover:bg-transparent hover:text-black text-sm transition-all"
                   onClick={signOut}
