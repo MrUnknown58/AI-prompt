@@ -7,6 +7,8 @@ export const GET = async (req, { params }) => {
     const response = await Prompt.find({ creator: params.id }).populate(
       "creator"
     );
+    console.log("Logging User Posts");
+    console.log(response);
     return new Response(JSON.stringify(response), { status: 200 });
   } catch (err) {
     console.log(err);
