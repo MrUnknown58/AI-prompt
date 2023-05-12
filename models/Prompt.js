@@ -42,7 +42,7 @@
 
 import mongoose, { Schema, model, models } from "mongoose";
 
-const PromptSchema = new Schema({
+const PromptSchema = new mongoose.Schema({
   creator: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
