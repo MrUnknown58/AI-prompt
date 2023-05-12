@@ -40,7 +40,7 @@
 
 // export default Prompt;
 
-import mongoose, { Schema, model, models } from "mongoose";
+import mongoose from "mongoose";
 
 const PromptSchema = new mongoose.Schema({
   creator: {
@@ -49,11 +49,11 @@ const PromptSchema = new mongoose.Schema({
   },
   prompt: {
     type: String,
-    required: [true, "Prompt is required."],
+    required: [true, "Prompt is required"],
   },
   tag: {
     type: String,
-    required: [true, "Tag is required."],
+    required: [true, "Tag is required"],
   },
 });
 
