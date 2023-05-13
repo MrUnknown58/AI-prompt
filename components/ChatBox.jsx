@@ -7,25 +7,24 @@ import {
   TextField,
   Tooltip,
 } from "@mui/material";
-import { makeStyles } from "@mui/styles";
 import React, { useEffect, useState, useTransition } from "react";
 import SaveIcon from "@mui/icons-material/Save";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { useSession } from "next-auth/react";
 import FetchChatResponse from "./actions";
 
-const useStyles = makeStyles((theme) => ({
-  bottomNavigation: {
-    position: "fixed",
-    bottom: 0,
-    left: 0,
-    // width: "100%",
-    padding: 8,
-    // backgroundColor: "transparent",
-    // boxShadow: theme.shadows[4],
-    display: "flex",
-  },
-}));
+// const useStyles = makeStyles((theme) => ({
+//   bottomNavigation: {
+//     position: "fixed",
+//     bottom: 0,
+//     left: 0,
+//     // width: "100%",
+//     padding: 8,
+//     // backgroundColor: "transparent",
+//     // boxShadow: theme.shadows[4],
+//     display: "flex",
+//   },
+// }));
 
 const ChatBox = ({ chatMessages, NewChatMessages }) => {
   const classes = useStyles();
@@ -175,7 +174,14 @@ const ChatBox = ({ chatMessages, NewChatMessages }) => {
        */}
       <div>
         <div
-          className={`${classes.bottomNavigation} space-x-4 bg-white flex flex-col px-5 md:ml-[20%] md:w-[60%] w-[100%] space-y-5`}
+          className={`space-x-4 bg-white flex flex-col px-5 md:ml-[20%] md:w-[60%] w-[100%] space-y-5`}
+          style={{
+            position: "fixed",
+            bottom: 0,
+            left: 0,
+            padding: 8,
+            display: "flex",
+          }}
         >
           <div className="flex justify-center">
             {loading && (
