@@ -1,7 +1,7 @@
-"use client";
 import Feed from "@components/Feed";
 import Image from "next/image";
 import Link from "next/link";
+import Open_Feed from "./open_feed/page";
 
 export default function Home() {
   return (
@@ -32,6 +32,8 @@ export default function Home() {
             Start your Journey by visiting our Feed
           </Link>
         </div> */}
+        {/* <Feed /> */}
+        <Open_Feed />
       </section>
     </>
   );

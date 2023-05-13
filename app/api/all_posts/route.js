@@ -5,7 +5,7 @@ export const GET = async (req) => {
   try {
     await connectToDB();
     const response = await Prompt.find({}).populate("creator");
-    console.log(response);
+    console.log("All Posts API implemented");
     return new Response(JSON.stringify(response), { status: 200 });
   } catch (e) {
     console.log(e);
