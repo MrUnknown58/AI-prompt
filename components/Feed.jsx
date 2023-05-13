@@ -2,19 +2,23 @@
 import { useEffect, useState } from "react";
 import PromptCart from "./PromptCart";
 import { useSession } from "next-auth/react";
+import { CircularProgress } from "@mui/material";
 const Feed = () => {
   const [search, setsearch] = useState("");
   const [posts, setposts] = useState([]);
+  const [loading, setloading] = useState(true);
   const [searchedPosts, setsearchedPosts] = useState([]);
   const { data: session } = useSession();
 
   useEffect(() => {
     const fetchdata = async () => {
+      setloading(true);
       const response = await fetch("/api/all_posts/3");
       const result = await response.json();
       console.log(result);
       setposts(result);
       setsearchedPosts(result);
+      setloading(false);
     };
     // if (session?.user.id) fetchdata();
     fetchdata();
@@ -45,32 +49,40 @@ const Feed = () => {
   };
   return (
     <section className="pt-10 flex flex-col justify-center items-center space-y-5">
-      <input
-        className="block w-[360px] rounded-md border border-gray-200 bg-white py-2.5 pl-5 pr-12 text-sm shadow-lg font-medium focus:border-black focus:outline-none focus:ring-0"
-        placeholder={
-          !session?.user?.id
-            ? "Please Sign in to use this Feature"
-            : "Search Here"
-        }
-        value={search}
-        disabled={!session?.user.id}
-        onChange={(e) => {
-          handleSearch(e, "");
-        }}
-      />
-      <div className="py-8 grid md:grid-cols-2 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 mt-[1.5rem]">
-        {/* <PromptList data={searchedPosts} handleTagClick={handleTagClick} /> */}
+      {loading ? (
+        <>
+          <CircularProgress color="primary" />
+        </>
+      ) : (
+        <>
+          <input
+            className="block w-[360px] rounded-md border border-gray-200 bg-white py-2.5 pl-5 pr-12 text-sm shadow-lg font-medium focus:border-black focus:outline-none focus:ring-0"
+            placeholder={
+              !session?.user?.id
+                ? "Please Sign in to use this Feature"
+                : "Search Here"
+            }
+            value={search}
+            disabled={!session?.user.id}
+            onChange={(e) => {
+              handleSearch(e, "");
+            }}
+          />
+          <div className="py-8 grid md:grid-cols-2 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 mt-[1.5rem]">
+            {/* <PromptList data={searchedPosts} handleTagClick={handleTagClick} /> */}
 
-        {searchedPosts?.map((post, index) => {
-          return (
-            <PromptCart
-              post={post}
-              key={index}
-              handleTagClick={handleTagClick}
-            />
-          );
-        })}
-      </div>
+            {searchedPosts?.map((post, index) => {
+              return (
+                <PromptCart
+                  post={post}
+                  key={index}
+                  handleTagClick={handleTagClick}
+                />
+              );
+            })}
+          </div>
+        </>
+      )}
     </section>
   );
 };

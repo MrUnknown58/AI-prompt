@@ -1,6 +1,7 @@
+import { CircularProgress } from "@mui/material";
 import PromptCart from "./PromptCart";
 
-const Profile = ({ name, desc, posts, handleEdit, handleDelete }) => {
+const Profile = ({ name, desc, posts, handleEdit, handleDelete, loading }) => {
   const handleTagClick = () => {};
   // const handleDelete = () => {};
   return (
@@ -14,22 +15,28 @@ const Profile = ({ name, desc, posts, handleEdit, handleDelete }) => {
             {desc}
           </p>
         </h1>
-        <div className="py-8 grid md:grid-cols-2 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-3 mt-[1.5rem] px-5">
-          {posts.map((post, index) => {
-            return (
-              <PromptCart
-                post={post}
-                key={post.id}
-                handleEdit={() => {
-                  handleEdit && handleEdit(post);
-                }}
-                handleDelete={() => {
-                  handleDelete && handleDelete(post);
-                }}
-              />
-            );
-          })}
-        </div>
+        {loading ? (
+          <div className="flex justify-center pt-10">
+            <CircularProgress color="primary" />
+          </div>
+        ) : (
+          <div className="py-8 grid md:grid-cols-2 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-3 mt-[1.5rem] px-5">
+            {posts.map((post, index) => {
+              return (
+                <PromptCart
+                  post={post}
+                  key={post.id}
+                  handleEdit={() => {
+                    handleEdit && handleEdit(post);
+                  }}
+                  handleDelete={() => {
+                    handleDelete && handleDelete(post);
+                  }}
+                />
+              );
+            })}
+          </div>
+        )}
       </section>
     </>
   );

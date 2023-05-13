@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 const MyProfile = () => {
   const { data: session } = useSession();
   const [posts, setposts] = useState([]);
+  const [loading, setloading] = useState(true);
   const router = useRouter();
   const handleEdit = async (post) => {
     router.push(`/edit_prompt?id=${post._id}`);
@@ -24,9 +25,11 @@ const MyProfile = () => {
   };
   useEffect(() => {
     const fetchPost = async () => {
+      setloading(true);
       const response = await fetch(`/api/users/${session?.user.id}/posts`);
       const result = await response.json();
       setposts(result);
+      setloading(false);
     };
     if (session?.user.id) fetchPost();
   }, [session?.user.id]);
@@ -37,6 +40,7 @@ const MyProfile = () => {
       posts={posts}
       handleEdit={handleEdit}
       handleDelete={handleDelete}
+      loading={loading}
     />
   );
 };
