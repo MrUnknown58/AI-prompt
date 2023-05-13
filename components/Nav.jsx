@@ -72,12 +72,6 @@ const Nav = () => {
                 </Tooltip>
 
                 <Link href="/profile" className="pr-4">
-                  {/* <Image
-                    src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8VXNlciUyMFByb2ZpbGUlMjBsb2dvfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=100&q=60"
-                    width={50}
-                    height={50}
-                  /> */}
-                  {/* <AccountBoxIcon color="blue" fontSize="large" /> */}
                   <Image
                     src={session?.user?.image}
                     width={30}
@@ -94,25 +88,27 @@ const Nav = () => {
             </>
           ) : (
             <>
-              <Link
-                className="rounded-full border border-black py-2 px-5 text-black hover:bg-black hover:text-white text-sm flex flex-col justify-center transition-all"
-                href="/open_feed"
-              >
-                Open Feed
-              </Link>
-              {providers &&
-                Object.values(providers).map((provider) => (
-                  <button
-                    type="button"
-                    key={provider.name}
-                    onClick={() => {
-                      signIn(provider.id);
-                    }}
-                    className="rounded-full border border-black bg-black py-2 px-5 text-white hover:bg-transparent hover:text-black text-sm transition-all"
-                  >
-                    Sign in
-                  </button>
-                ))}
+              <div className="space-x-4 flex">
+                <Link
+                  className="rounded-full border border-black py-2 px-5 text-black hover:bg-black hover:text-white text-sm flex flex-col justify-center transition-all"
+                  href="/open_feed"
+                >
+                  Open Feed
+                </Link>
+                {providers &&
+                  Object.values(providers).map((provider) => (
+                    <button
+                      type="button"
+                      key={provider.name}
+                      onClick={() => {
+                        signIn(provider.id);
+                      }}
+                      className="rounded-full border border-black bg-black py-2 px-5 text-white hover:bg-transparent hover:text-black text-sm transition-all"
+                    >
+                      Sign in
+                    </button>
+                  ))}
+              </div>
             </>
           )}
         </div>

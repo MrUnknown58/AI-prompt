@@ -27,7 +27,6 @@ import FetchChatResponse from "./actions";
 // }));
 
 const ChatBox = ({ chatMessages, NewChatMessages }) => {
-  const classes = useStyles();
   const { data: session } = useSession();
   const [inputValue, setInputValue] = useState("");
   const [loading, setloading] = useState(false);
