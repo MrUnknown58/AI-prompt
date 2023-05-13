@@ -56,7 +56,7 @@ const Feed = () => {
       ) : (
         <>
           <input
-            className="block w-[360px] rounded-md border border-gray-200 bg-white py-2.5 pl-5 pr-12 text-sm shadow-lg font-medium focus:border-black focus:outline-none focus:ring-0"
+            className="block w-[340px] rounded-md border border-gray-200 bg-white py-2.5 pl-5 pr-12 text-sm shadow-lg font-medium focus:border-black focus:outline-none focus:ring-0"
             placeholder={
               !session?.user?.id
                 ? "Please Sign in to use this Feature"
@@ -68,7 +68,7 @@ const Feed = () => {
               handleSearch(e, "");
             }}
           />
-          <div className="py-8 grid md:grid-cols-2 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 mt-[1.5rem]">
+          <div className="py-8 grid md:grid-cols-2 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 mt-[1.5rem] px-8">
             {/* <PromptList data={searchedPosts} handleTagClick={handleTagClick} /> */}
 
             {searchedPosts?.map((post, index) => {

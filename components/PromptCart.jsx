@@ -26,7 +26,7 @@ const PromptCart = ({ post, handleTagClick, handleEdit, handleDelete }) => {
         <div className="flex justify-between">
           <div className="flex items-center">
             {session?.user.id === post?.creator?._id && path === "/profile" ? (
-              <div className="space-x-5">
+              <div className="sm:space-x-5">
                 <Tooltip title="Edit" placement="top">
                   <ModeEditOutlineIcon
                     className="cursor-pointer"
@@ -50,7 +50,7 @@ const PromptCart = ({ post, handleTagClick, handleEdit, handleDelete }) => {
           >
             <Image
               class="rounded object-contain object-center mb-6 flex justify-end"
-              src={post.creator.image}
+              src={post?.creator?.image}
               alt="user_image"
               height={40}
               width={40}

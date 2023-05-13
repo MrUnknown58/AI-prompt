@@ -20,7 +20,10 @@ const Profile = ({ name, desc, posts, handleEdit, handleDelete, loading }) => {
             <CircularProgress color="primary" />
           </div>
         ) : (
-          <div className="py-8 grid md:grid-cols-2 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-3 mt-[1.5rem] px-5">
+          <div
+            className="py-8 grid md:grid-cols-2 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-3 mt-[1.5rem] px-8"
+            style={{ paddingX: "2rem" }}
+          >
             {posts.map((post, index) => {
               return (
                 <PromptCart
