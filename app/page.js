@@ -33,7 +33,7 @@ export default function Home() {
           </Link>
         </div> */}
         {/* <Feed /> */}
-        <Open_Feed />
+        {/* <Open_Feed /> */}
       </section>
     </>
   );

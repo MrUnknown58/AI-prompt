@@ -2,17 +2,6 @@
 import { useEffect, useState } from "react";
 import PromptCart from "./PromptCart";
 import { useSession } from "next-auth/react";
-const PromptList = ({ data, handleTagClick }) => {
-  return (
-    <>
-      {data.map((post, index) => {
-        return (
-          <PromptCart post={post} key={index} handleTagClick={handleTagClick} />
-        );
-      })}
-    </>
-  );
-};
 const Feed = () => {
   const [search, setsearch] = useState("");
   const [posts, setposts] = useState([]);
@@ -21,7 +10,7 @@ const Feed = () => {
 
   useEffect(() => {
     const fetchdata = async () => {
-      const response = await fetch("/api/all_posts");
+      const response = await fetch("/api/all_posts/3");
       const result = await response.json();
       console.log(result);
       setposts(result);
@@ -70,7 +59,17 @@ const Feed = () => {
         }}
       />
       <div className="py-8 grid md:grid-cols-2 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 mt-[1.5rem]">
-        <PromptList data={searchedPosts} handleTagClick={handleTagClick} />
+        {/* <PromptList data={searchedPosts} handleTagClick={handleTagClick} /> */}
+
+        {searchedPosts?.map((post, index) => {
+          return (
+            <PromptCart
+              post={post}
+              key={index}
+              handleTagClick={handleTagClick}
+            />
+          );
+        })}
       </div>
     </section>
   );

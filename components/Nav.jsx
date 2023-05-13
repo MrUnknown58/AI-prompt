@@ -48,7 +48,7 @@ const Nav = () => {
                 </Link>
                 <Link
                   className="rounded-full border border-black py-2 px-5 text-black hover:bg-black hover:text-white text-sm flex flex-col justify-center transition-all"
-                  href="/new_prompts"
+                  href="/open_feed"
                 >
                   Open Feed
                 </Link>
@@ -94,6 +94,12 @@ const Nav = () => {
             </>
           ) : (
             <>
+              <Link
+                className="rounded-full border border-black py-2 px-5 text-black hover:bg-black hover:text-white text-sm flex flex-col justify-center transition-all"
+                href="/open_feed"
+              >
+                Open Feed
+              </Link>
               {providers &&
                 Object.values(providers).map((provider) => (
                   <button
