@@ -66,22 +66,28 @@ const PromptCart = ({ post, handleTagClick, handleEdit, handleDelete }) => {
         <div className="flex justify-between">
           {/* <Tooltip title="Move to Chat it Out and Paste your Prompt"> */}
           <div>
-            <h2
-              class="md:w-[280px] w-full text-lg font-medium title-font mb-4 cursor-pointer"
-              style={{
-                overflow: "hidden",
-                "text-overflow": "ellipsis",
-                display: "-webkit-box",
-                "-webkit-line-clamp": "2",
-                "-webkit-box-orient": "vertical",
-              }}
-              onClick={() => {
-                handleCopyPrompt();
-                router.push("/chat_it_out");
-              }}
+            <Tooltip
+              title={post.prompt}
+              className="cursor-pointer"
+              placement="top"
             >
-              {post.prompt}
-            </h2>
+              <h2
+                class="md:w-[280px] w-full text-lg font-medium title-font mb-4"
+                style={{
+                  overflow: "hidden",
+                  "text-overflow": "ellipsis",
+                  display: "-webkit-box",
+                  "-webkit-line-clamp": "2",
+                  "-webkit-box-orient": "vertical",
+                }}
+                onClick={() => {
+                  handleCopyPrompt();
+                  router.push("/chat_it_out");
+                }}
+              >
+                {post.prompt}
+              </h2>
+            </Tooltip>
             <div
               onClick={() => {
                 path === "/"

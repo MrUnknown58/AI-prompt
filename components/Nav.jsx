@@ -89,12 +89,24 @@ const Nav = () => {
           ) : (
             <>
               <div className="space-x-4 flex">
-                <Link
+                {/* <Link
                   className="rounded-full border border-black py-2 px-5 text-black hover:bg-black hover:text-white text-sm flex flex-col justify-center transition-all"
                   href="/open_feed"
                 >
                   Open Feed
-                </Link>
+                </Link> */}
+                <Tooltip title="Our Own AI-Powered ChatBot" placement="top">
+                  <Link
+                    className={`rounded-full py-2 px-5 text-black ${
+                      path !== "/chat_it_out"
+                        ? "hover:bg-black hover:text-white border border-black"
+                        : "bg-blue-500 hover:bg-blue-200"
+                    } text-sm flex flex-col justify-center transition-all`}
+                    href="/chat_it_out"
+                  >
+                    Open Chat-IT-OUT
+                  </Link>
+                </Tooltip>
                 {providers &&
                   Object.values(providers).map((provider) => (
                     <button
@@ -149,6 +161,15 @@ const Nav = () => {
                     className="text-sm font-inter text-gray-700 hover:text-gray-500 font-medium"
                   >
                     Create Prompts
+                  </Link>
+                  <Link
+                    href="/chat_it_out"
+                    onClick={() => {
+                      setisMenuOpen(false);
+                    }}
+                    className="text-sm font-inter text-gray-700 hover:text-gray-500 font-medium"
+                  >
+                    Open Chat-It-Out
                   </Link>
                   <button
                     className="rounded-full border border-black bg-black py-2 px-5 text-white hover:bg-white hover:text-black text-sm transition-all w-full mt-5"
