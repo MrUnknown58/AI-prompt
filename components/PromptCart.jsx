@@ -82,7 +82,7 @@ const PromptCart = ({ post, handleTagClick, handleEdit, handleDelete }) => {
                 }}
                 onClick={() => {
                   handleCopyPrompt();
-                  router.push("/chat_it_out");
+                  // router.push("/chat_it_out");
                 }}
               >
                 {post.prompt}

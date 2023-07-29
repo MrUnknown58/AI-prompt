@@ -58,7 +58,7 @@ const Nav = () => {
                 >
                   Sign Out
                 </button>
-                <Tooltip title="Our Own AI-Powered ChatBot" placement="top">
+                {/* <Tooltip title="Our Own AI-Powered ChatBot" placement="top">
                   <Link
                     className={`rounded-full py-2 px-5 text-black ${
                       path !== "/chat_it_out"
@@ -69,7 +69,7 @@ const Nav = () => {
                   >
                     Open Chat-IT-OUT
                   </Link>
-                </Tooltip>
+                </Tooltip> */}
 
                 <Link href="/profile" className="pr-4">
                   <Image
@@ -89,13 +89,7 @@ const Nav = () => {
           ) : (
             <>
               <div className="space-x-4 flex">
-                {/* <Link
-                  className="rounded-full border border-black py-2 px-5 text-black hover:bg-black hover:text-white text-sm flex flex-col justify-center transition-all"
-                  href="/open_feed"
-                >
-                  Open Feed
-                </Link> */}
-                <Tooltip title="Our Own AI-Powered ChatBot" placement="top">
+                {/* <Tooltip title="Our Own AI-Powered ChatBot" placement="top">
                   <Link
                     className={`rounded-full py-2 px-5 text-black ${
                       path !== "/chat_it_out"
@@ -106,7 +100,7 @@ const Nav = () => {
                   >
                     Open Chat-IT-OUT
                   </Link>
-                </Tooltip>
+                </Tooltip> */}
                 {providers &&
                   Object.values(providers).map((provider) => (
                     <button
@@ -162,7 +156,7 @@ const Nav = () => {
                   >
                     Create Prompts
                   </Link>
-                  <Link
+                  {/* <Link
                     href="/chat_it_out"
                     onClick={() => {
                       setisMenuOpen(false);
@@ -170,7 +164,7 @@ const Nav = () => {
                     className="text-sm font-inter text-gray-700 hover:text-gray-500 font-medium"
                   >
                     Open Chat-It-Out
-                  </Link>
+                  </Link> */}
                   <button
                     className="rounded-full border border-black bg-black py-2 px-5 text-white hover:bg-white hover:text-black text-sm transition-all w-full mt-5"
                     onClick={() => {

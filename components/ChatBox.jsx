@@ -11,8 +11,6 @@ import React, { useEffect, useState, useTransition } from "react";
 import SaveIcon from "@mui/icons-material/Save";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { useSession } from "next-auth/react";
-import FetchChatResponse from "./actions";
-
 // const useStyles = makeStyles((theme) => ({
 //   bottomNavigation: {
 //     position: "fixed",
@@ -66,6 +64,8 @@ const ChatBox = ({ chatMessages, NewChatMessages }) => {
         }),
       });
       console.log(response);
+      const d = await response.text();
+      console.log(d);
       if (!response.ok) {
         setloading(false);
         NewChatMessages([
